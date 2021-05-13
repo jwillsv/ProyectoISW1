@@ -42,7 +42,7 @@ public class OperUser implements OperacionesUsuario<Usuarios> {
 
     }
     @Override
-    public Usuarios registro(String nombre, String contrasena)
+    public List<Usuarios> registro(String nombre, String contrasena)
     {
        Conexiones c = new Conexiones();
        Connection cActiva = c.conectarse();
@@ -57,8 +57,15 @@ public class OperUser implements OperacionesUsuario<Usuarios> {
                     ps.setString(1, nombre);
                     ps.setString(2, contrasena);
                     user.setNombreUsuario(rs.getString("nombreEmpleado"));
-                    user.setContrasena(rs.getString("edadEmpleado"));                  
-                    datos.add(user);                                       
+                    user.setContrasena(rs.getString("edadEmpleado"));   
+                    if(!datos.isEmpty())
+                    {
+                         
+                    }
+                    else
+                    {
+                        datos.add(user); 
+                    }                                                       
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(OperUser.class.getName()).log(Level.SEVERE, null, ex);
@@ -66,6 +73,6 @@ public class OperUser implements OperacionesUsuario<Usuarios> {
                 c.desconectase(cActiva);
             }
         }
-        return null;
+        return datos;
     }
 }

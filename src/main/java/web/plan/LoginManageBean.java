@@ -7,16 +7,17 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotNull;
+import javax.persistence.EntityManager;
+
 
 @ManagedBean
 @RequestScoped
 public class LoginManageBean {
 
+    private EntityManager buscar;
     private String nombreUsuario;
     private String contrasena;
-    private Usuarios user;
+    private List<Usuarios> user;
 
     public String getNombreUsuario() {
         return nombreUsuario;
@@ -34,11 +35,11 @@ public class LoginManageBean {
         this.contrasena = contrasena;
     }
 
-    public Usuarios getUser() {
+    public List<Usuarios> getUser() {
         return user;
     }
 
-    public void setUser(Usuarios user) {
+    public void setUser(List<Usuarios> user) {
         this.user = user;
     }
     
@@ -47,6 +48,7 @@ public class LoginManageBean {
     public LoginManageBean() {
 
     }
+    
 
     public String ingresar() {
         OperUser usuario = new OperUser();

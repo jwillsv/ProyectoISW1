@@ -42,30 +42,24 @@ public class OperUser implements OperacionesUsuario<Usuarios> {
 
     }
     @Override
-    public List<Usuarios> registro(String nombre, String contrasena)
+    public boolean registro(String nombre, String contrasena)
     {
        Conexiones c = new Conexiones();
        Connection cActiva = c.conectarse();
-       List<Usuarios> datos = new ArrayList<>();
         if (cActiva != null) {
             try {
-                String sql = "select * from planesViajes where nombreUsuario = ? and contrasena = ?" ;
+                String sql = "select * from usuarios where nombreUsuario = ? and contrasena = ?" ;
                 PreparedStatement ps = cActiva.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    Usuarios user = new Usuarios();
-                    ps.setString(1, nombre);
-                    ps.setString(2, contrasena);
-                    user.setNombreUsuario(rs.getString("nombreEmpleado"));
-                    user.setContrasena(rs.getString("edadEmpleado"));   
-                    if(!datos.isEmpty())
-                    {
-                         
-                    }
-                    else
-                    {
-                        datos.add(user); 
-                    }                                                       
+                ps.setString(1, nombre);
+                ps.setString(2, contrasena);
+                if (rs.next()) 
+                {
+                    return true;                                              
+                }
+                else if(!rs.next())
+                {
+                    return false;
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(OperUser.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,6 +67,6 @@ public class OperUser implements OperacionesUsuario<Usuarios> {
                 c.desconectase(cActiva);
             }
         }
-        return datos;
+        return false;
     }
 }

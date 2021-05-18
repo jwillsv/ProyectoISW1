@@ -3,18 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BBDDOperaciones;
-
-import dao.Usuarios;
+package BBDDOperacionesEquipaje;
+import BBDDOperaciones.*;
 import java.util.List;
 
 /**
  *
  * @author jason
- * @param 
  */
-public interface OperacionesUsuario<U> 
+public interface OperacionesEquipaje<E> 
 {
-    public int insertar(U dato);
-    public boolean registro(String nombre, String contrasena);
+    public int insertarInfo(E dato);
+    
 }

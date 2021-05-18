@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+
+    <html>
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Prueba con Primefaces</title>
+        </h:head>
+
+        <h:body>
+            <p:messages id="messages" showDetail="true" closable="true">
+                <p:autoUpdate/>
+            </p:messages>
+            <p:column>
+                <p:panel header="ELIJA SU DESTINO Y LAS FECHAS DE INICIO Y TERMINACIÓN DEL VIAJE EN SU PLAN" styleClass="">           
+                    <p:separator>
+                        <div class="card" align="left"> 
+                            <h:form>
+                                <div class="ui-fluid p-formgrid p-grid" align="left">
+                                    <div class="p-field p-col-12 p-md-4">
+                                        <p:outputLabel for="@next" value="Basic"/>
+                                        <p:selectOneMenu id="option" value="#{selectOneMenuView.selectedOption}">
+                                            <f:selectItem itemLabel="Seleccione un destino " itemValue=""/>
+                                            <f:selectItem itemLabel="Afganistan" itemValue="Afganistan"/>
+                                            <f:selectItem itemLabel="Albania" itemValue="Albania"/>
+                                            <f:selectItem itemLabel="Alemania" itemValue="Alemania"/>
+                                            <f:selectItem itemLabel="Andorra" itemValue="Andorra"/>
+                                            <f:selectItem itemLabel="Angola" itemValue="Angola"/>
+                                            <f:selectItem itemLabel="Estados Unidos" itemValue="Estados Unidos"/>
+                                            <f:selectItem itemLabel="Eslovaquia" itemValue="Eslovaquia"/>
+                                            <f:selectItem itemLabel="Estambul" itemValue="Estambul"/>
+                                            <f:selectItem itemLabel="España" itemValue="España"/>
+                                            <f:selectItem itemLabel="Egipto" itemValue="Egipto"/>
+                                            <f:selectItem itemLabel="Francia" itemValue="Francia"/>
+                                            <f:selectItem itemLabel="Finlandia" itemValue="Finlandia"/>
+                                            <f:selectItem itemLabel="Italia" itemValue="Italia"/>
+                                            <f:selectItem itemLabel="India" itemValue="India"/>
+                                            <f:selectItem itemLabel="Reino Unido" itemValue="Reino Unido"/>
+                                            <f:selectItem itemLabel="Rep Checa" itemValue="Rep Checa"/>
+                                            <f:selectItem itemLabel="Rumania" itemValue="Rumania"/>
+                                            <f:selectItem itemLabel="Ruanda" itemValue="Ruanda"/>
+                                            <f:selectItem itemLabel="Rusia" itemValue="Rusia"/>
+                                            <f:selectItem itemLabel="Suiza" itemValue="Suiza"/>
+                                            <f:facet name="footer">
+                                                <h:outputText value="Elija una opción" style="font-weight:bold;"/>
+                                            </f:facet>
+                                        </p:selectOneMenu>
+                                    </div>
+                                </div>
+                            </h:form>
+                        </div>
+                    </p:separator>
+
+                    <p:separator >
+                        <div class="card" style="alignment-adjust: alphabetic" align="justify">
+                            <h:outputLabel for="input" value="Fecha Inicial" />
+                            <p:calendar value="#{dateBean.date}" mode="popup"/>
+                        </div>
+                    </p:separator>
+
+                    <p:separator>
+                        <div class="card" style="alignment-adjust: alphabetic" align="justify">
+                            <h:outputLabel for="input" value="Fecha Final" />
+                            <p:calendar value="#{dateBean.date}" mode="popup"/>                   
+                        </div> 
+                    </p:separator>
+                    <p:commandButton value="Validar"/>
+                </p:panel>  
+            </p:column>
+            <p:column>
+                <p:panel header="RECOMENDACIÓN PAÍSES">
+                    <div class="card">
+                        <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
+                            <p:graphicImage name="demo/images/nature/#{image}" alt="Image Description for #{image}"
+                                            title="#{image}"/>
+                        </p:galleria>
+                    </div>      
+                </p:panel>
+            </p:column>
+        </h:body>
+    </html>
+</f:view>

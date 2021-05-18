@@ -14,11 +14,19 @@
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate/>
                 </p:messages><!-- comment -->
-                <p:panel header="PLANIFICADOR DE VIAJES: ELIGE UN DESTINO Y PLANEA TÚ VIAJE">            
-                    <p:commandButton id="entrar" value="Ingresar Plataforma" action="entrar"/> 
+                <p:panel header="EQUIPAJE (DIGITE INTEGRANTES Y EL PESO)">            
+                    <p:dataTable var="equipaje" value="#{dtBasicView.products}">
+                        <p:column headerText="Code">
+                            <h:outputText value="#{product.code}" />
+                        </p:column>
+
+                        <p:column headerText="Name">
+                            <h:outputText value="#{product.name}" />
+                        </p:column>
+                    </p:dataTable>
                 </p:panel>
-                <p:panel header ="Universidad Central. Jason Wills. Tutor: Giovanny Alexander Briceño riveros .2021"/>
             </h:form>
         </h:body>
     </html>
 </f:view>
+

@@ -6,38 +6,42 @@
         xmlns:ui="http://java.sun.com/jsf/facelets"
         xmlns:p="http://primefaces.org/ui">
     <html>
-        <h:head>
-            <title>Facelet Title</title>
-        </h:head>
-        <h:body>
-            <p:messages id="messages" showDetail="true" closable="true">
-                <p:autoUpdate/>
-            </p:messages><!-- comment -->
-            <p:panel header="LOGIN ENTRADA DE VIAJES">
-                <div>
-                    <p:inputText id="nombreUsuario" value="#{loginManageBean.nombreUsuario}"/>
-                    <p:outputLabel for="@previous" value="id"/>                                                                      
-                </div>
-                <p:separator/>
-                <div>
-                    <p:inputText id="contraseña" value="#{loginManageBean.contrasena}"/>
-                    <p:outputLabel for="@previous" value="password"/> 
-                </div>
-                <p:separator/>
+        <h:form>
+            <h:head>
+                <title>Facelet Title</title>
+            </h:head>
+            <h:body>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate/>
+                </p:messages><!-- comment -->
+                <p:panel header="LOGIN ENTRADA DE VIAJES">
+                    <div>
+                        <p:inputText id="name" value="#{loginManageBean.nombreUsuario}"/>
+                        <p:outputLabel for="@previous" value="id"/>                                                                      
+                    </div>
+                    <p:separator/>
+                    <div>
+                        <p:inputText id="pass" value="#{loginManageBean.contrasena}"/>
+                        <p:outputLabel for="@previous" value="password"/> 
+                    </div>
+                    <p:separator/>
 
-                <h:form>
-                    <p:commandButton id ="validar" value="Entrar" action="#{loginManageBean.ingresar()}" ajax="false"/>
-                    <p:commandButton id ="usuarioNuevo" value="Crear Nuevo Usuario" action="newuser" ajax="false"/>      
-                </h:form>
-                <p:panel>
-                    <h:form>
+
+                    <p:commandButton id ="validar" value="Entrar" action="#{loginManageBean.entrarPlataforma()}" ajax="false" update="msg"/>
+                    <h:outputLabel id="msg" value="#{loginManageBean.mensaje}" />     
+                    <p:commandButton id ="usuarioNuevo" value="Crear Nuevo Usuario" action="newuser" ajax="false"/>    
+
+
+                    <p:panel>
+
                         <p:commandButton id="salirPlan" value="Salir" action="salir" ajax="false"/> 
-                    </h:form> 
+
+                    </p:panel>
+
+
                 </p:panel>
-
-
-            </p:panel>
-        </h:body>
+            </h:body>
+        </h:form>
     </html>
 </f:view>
 

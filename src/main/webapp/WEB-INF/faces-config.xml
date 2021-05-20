@@ -23,7 +23,7 @@
         </navigation-case>
         <navigation-case>
             <from-action>consultaViajes</from-action>
-            <to-view-id>/faces/test.xhtml</to-view-id>
+            <to-view-id>/faces/consultaViajes.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
         <navigation-case>
@@ -34,9 +34,26 @@
     </navigation-rule>  
      
     <navigation-rule>
-        <from-view-id>/generar_usuario.xhtml</from-view-id>
-        <from-action>login</from-action>
-        <to-view-id>/faces/login.xhtml</to-view-id>
-        <redirect/>        
-    </navigation-rule>    
+        <navigation-case>
+            <from-view-id>/generar_usuario.xhtml</from-view-id>
+            <from-action>login</from-action>
+            <to-view-id>/faces/login.xhtml</to-view-id>
+            <redirect/>  
+        </navigation-case>      
+    </navigation-rule> 
+    
+    <navigation-rule>
+        <from-view-id>/consultaViajes.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>empezar</from-action>
+            <to-view-id>/faces/seleccionDestino.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>  
+        <navigation-case>
+            <from-action>login</from-action>
+            <to-view-id>/faces/login.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>  
+    </navigation-rule> 
+      
 </faces-config>

@@ -58,6 +58,7 @@ public class NuevoUsuarioBean {
         Usuarios nuevo = new Usuarios();
         nuevo.setNombreUsuario(nombreUsuario);
         nuevo.setContrasena(contrasena);
+        System.out.println("Nombre Usuario: " + nombreUsuario + "Contra" + contrasena);
         System.out.println("Usuario Viaje " + usuario);
         this.mensaje = "Usuario Verificado";
         if (nombreUsuario.isEmpty() || contrasena.isEmpty() || verifyContrasena.isEmpty()) {

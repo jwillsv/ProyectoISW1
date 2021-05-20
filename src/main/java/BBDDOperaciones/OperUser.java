@@ -1,15 +1,11 @@
 package BBDDOperaciones;
 
 import BBDD.Conexiones;
-import BBDDOperaciones.OperacionesUsuario;
-
 import dao.Usuarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -42,7 +38,7 @@ public class OperUser implements OperacionesUsuario<Usuarios> {
 
     }
     @Override
-    public boolean registro(String nombre, String contrasena)
+    public boolean registro(String nombreUsuario, String contrasena)
     {
        Conexiones c = new Conexiones();
        Connection cActiva = c.conectarse();
@@ -50,9 +46,9 @@ public class OperUser implements OperacionesUsuario<Usuarios> {
             try {
                 String sql = "select * from usuarios where nombreUsuario = ? and contrasena = ?" ;
                 PreparedStatement ps = cActiva.prepareStatement(sql);
-                ResultSet rs = ps.executeQuery();
-                ps.setString(1, nombre);
+                ps.setString(1, nombreUsuario);
                 ps.setString(2, contrasena);
+                ResultSet rs = ps.executeQuery();
                 if (rs.next()) 
                 {
                     return true;                                              

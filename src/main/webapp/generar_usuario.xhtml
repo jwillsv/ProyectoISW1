@@ -30,7 +30,7 @@
                         <p:inputText id="VerificarContrasenaaN" value="#{nuevoUsuarioBean.verifyContrasena}"/>
                         <p:outputLabel for="@previous" value="verifyPass"/> 
                     </div>
-                        <p:commandButton value="Validar" action="#{nuevoUsuarioBean.validar()}" update="msg1"/>
+                    <p:commandButton value="Validar" action="#{nuevoUsuarioBean.validar()}" update="msg1" ajax="false"/>
                         <h:outputLabel id="msg1" value="#{nuevoUsuarioBean.mensaje}" />                   
                 </p:panel>
             </h:form>

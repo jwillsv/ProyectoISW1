@@ -10,11 +10,21 @@
             <title>Facelet Title</title>
         </h:head>
         <h:body>
-            <p:messages id="messages" showDetail="true" closable="true">
-                <p:autoUpdate/>
-            </p:messages><!-- comment -->
-            <p:panel header="Consulte los viajes a su disposición">
-            </p:panel>
+            <h:form>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate/>
+                </p:messages><!-- comment -->
+                <p:panel header="AQUI SE ADMINISTRAN SUS PLANES">
+
+                </p:panel>
+                <p:panel header="CREAR PLAN">
+                    <h:form>
+                        <p:commandButton id="newPlan" value="Crear Plan" action="empezar" ajax="false"/>
+                        <p:commandButton id="salirPlan" value="Salir del planificador" action="login" ajax="false"/>
+                    </h:form>
+                </p:panel>
+            </h:form>
+
         </h:body>
     </html>
 </f:view>

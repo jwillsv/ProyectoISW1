@@ -32,6 +32,7 @@ public class CountryDates
         this.paises = paises;
     }
     
+    @Override
     public String toString()
     {
         return this.fechaInicial + " " +

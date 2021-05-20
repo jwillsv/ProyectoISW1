@@ -16,5 +16,5 @@ import java.util.List;
 public interface OperacionesUsuario<U> 
 {
     public int insertar(U dato);
-    public boolean registro(String nombre, String contrasena);
+    public boolean registro(String nombre, String pass);
 }

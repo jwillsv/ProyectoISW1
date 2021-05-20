@@ -10,16 +10,23 @@ import java.util.Date;
 import dao.Paises;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+
 /**
  *
  * @author jason
  */
-public class CountryDatesBean 
-{
-    public CountryDatesBean(){
-        
+@ManagedBean
+@RequestScoped
+public class CountryDatesBean {
+
+    public CountryDatesBean() {
+
     }
-   
+
     private List<String> imagesAlemania;
     private List<String> imagesEEUU;
     private List<String> imagesEspanya;
@@ -57,8 +64,6 @@ public class CountryDatesBean
     public void setPaises(String paises) {
         this.paises = paises;
     }
-
-    
 
     public String getMensajeAct1() {
         return mensajeAct1;
@@ -139,21 +144,76 @@ public class CountryDatesBean
     public void setImagesRusia(List<String> imagesRusia) {
         this.imagesRusia = imagesRusia;
     }
-    
-    
-    public void imagenDestino()
-    {
+
+    public void imagenDestino() {
         CountryDates pais = new CountryDates();
+        if (this.paises.equals("Alemania")) {
+            imagesAlemania.add(1, "1.jpg");
+            imagesAlemania.add(2, "brandenburger-tor-201939_960_720.jpg");
+            imagesAlemania.add(3, "city-3378773_960_720.jpg");
+            imagesAlemania.add(4, "panorama-2646143_960_720.jpg");
+        } else if (this.paises.equals("Estados Unidos")) {
+            imagesEEUU.add(1, "water-3046088_960_720.jpg");
+            imagesEEUU.add(2, "buildings-668616_960_720.jpg");
+            imagesEEUU.add(3, "mount-rushmore-3608620_960_720.jpg");
+            imagesEEUU.add(4, "street-690826_960_720 (1).jpg");
 
- 
-        
-        
+        } else if (this.paises.equals("Francia")) {
+            imagesFrancia.add(1, "building-102840_960_720.jpg");
+            imagesFrancia.add(2, "eiffel-tower-3349075_960_720.jpg");
+            imagesFrancia.add(3, "paris-1836415_960_720.jpg");
+            imagesFrancia.add(4, "paris-1852928_960_720.jpg");
+        } else if (this.paises.equals("España")) {
+            imagesEspanya.add(1, "madrid-3021998_960_720.jpg");
+            imagesEspanya.add(2, "madrid-5010803_960_720.jpg");
+            imagesEspanya.add(3, "mountain-4820681_960_720.jpg");
+            imagesEspanya.add(4, "valencia-1049389_960_720.jpg");
+        } else if (this.paises.equals("Rusia")) {
+            imagesRusia.add(1, "fair-3872942_960_720.jpg");
+            imagesRusia.add(2, "moscow-1556561_960_720.jpg");
+            imagesRusia.add(3, "moscow-cathedral-mosque-1483524_960_720.jpg");
+            imagesRusia.add(4, "the-caucasus-5302236_960_720.jpg");
+
+        }
+
     }
-    
-    
-    
-    
 
-    
-    
+    public void mensajes() {
+        if (this.paises.equals("Alemania")) {
+            this.mensajeAct1 = "Actividad Surf: $500000";
+            this.mensajeAct2 = "Actividad vuelos: $1700000";
+            this.mensajeAct3 = "Actividad Realidad Virtual: $500000";
+            this.mensajeAct4 = "Actividad : Visitas: $700000";
+            this.mensajeAct5 = "Actividad Surf: Paseos: $500000";
+        } else if (this.paises.equals("Estados Unidos")) {
+            this.mensajeAct1 = "Actividad Surf: $500000";
+            this.mensajeAct2 = "Actividad vuelos: $1700000";
+            this.mensajeAct3 = "Actividad Realidad Virtual: $500000";
+            this.mensajeAct4 = "Actividad : Visitas: $700000";
+            this.mensajeAct5 = "Actividad Surf: Paseos: $500000";
+
+        } else if (this.paises.equals("Francia")) {
+            this.mensajeAct1 = "Actividad Surf: $500000";
+            this.mensajeAct2 = "Actividad vuelos: $1700000";
+            this.mensajeAct3 = "Actividad Realidad Virtual: $500000";
+            this.mensajeAct4 = "Actividad : Visitas: $700000";
+            this.mensajeAct5 = "Actividad Surf: Paseos: $500000";
+
+        } else if (this.paises.equals("España")) {
+            this.mensajeAct1 = "Actividad Surf: $500000";
+            this.mensajeAct2 = "Actividad vuelos: $1700000";
+            this.mensajeAct3 = "Actividad Realidad Virtual: $500000";
+            this.mensajeAct4 = "Actividad : Visitas: $700000";
+            this.mensajeAct5 = "Actividad Surf: Paseos: $500000";
+
+        } else if (this.paises.equals("Rusia")) {
+            this.mensajeAct1 = "Actividad Surf: $500000";
+            this.mensajeAct2 = "Actividad vuelos: $1700000";
+            this.mensajeAct3 = "Actividad Realidad Virtual: $500000";
+            this.mensajeAct4 = "Actividad : Visitas: $700000";
+            this.mensajeAct5 = "Actividad Surf: Paseos: $500000";
+
+        }
+    }
+
 }

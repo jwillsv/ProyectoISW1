@@ -15,15 +15,25 @@
                     <p:autoUpdate/>
                 </p:messages><!-- comment -->
                 <p:panel header="EQUIPAJE (DIGITE INTEGRANTES Y EL PESO)">            
-                    <p:dataTable var="equipaje" value="#{dtBasicView.products}">
-                        <p:column headerText="Code">
-                            <h:outputText value="#{product.code}" />
-                        </p:column>
-
-                        <p:column headerText="Name">
-                            <h:outputText value="#{product.name}" />
-                        </p:column>
+                    <p:dataTable var="equipaje" value="#{equipajeIntegrantesBean.listaEquipaje}" paginator="true"  rows="10">
+                        <p:column headerText="Integrante">
+                            <p:cellEditor>
+                                <p:column headerText="Integrante">
+                                    <h:outputText value="#{equipaje.nombreIntegrante }" />
+                                </p:column>
+                                <p:column headerText="Peso equipaje">
+                                    <h:outputText value="#{equipaje.pesoEquipaje}" />
+                                </p:column>
+                                <p:column headerText="Valor Equipaje">
+                                    <h:outputText value="#{equipaje.valorEquipaje}" />
+                                </p:column>
+                            </p:cellEditor>
+                        </p:column>                      
                     </p:dataTable>
+                    <p:commandButton value="Añadir" action="añadir" ajax="false"/>
+                </p:panel>
+                <p:panel>
+                    <p:commandButton value="Volver" action="volver" ajax="false"/>
                 </p:panel>
             </h:form>
         </h:body>

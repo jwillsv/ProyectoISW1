@@ -13,37 +13,37 @@ import java.util.List;
  */
 public class Gastos 
 {
-    private Long gastoPasajes;
-    private Long gastoHospedaje;
-    private List<Long> recuerdosGasto;
+    private int gastoPasajes;
+    private int gastoHospedaje;
+    private List<Integer> recuerdosGasto;
     private List<String> nombreRecuerdo;
-    private List<Long> gastoLugar;
-    private List<String> nombreLugar;
-    private List<Long> valorEquipaje;
+    private List<Integer> gastoLugar_Actividad;
+    private List<String> nombreLugar_Actividad;
+    private List<Integer> valorEquipaje;
     private List<String> integrantes;
     private List<String> tipoVehiculo;
 
-    public Long getGastoPasajes() {
+    public int getGastoPasajes() {
         return gastoPasajes;
     }
 
-    public void setGastoPasajes(Long gastoPasajes) {
+    public void setGastoPasajes(int gastoPasajes) {
         this.gastoPasajes = gastoPasajes;
     }
 
-    public Long getGastoHospedaje() {
+    public int getGastoHospedaje() {
         return gastoHospedaje;
     }
 
-    public void setGastoHospedaje(Long gastoHospedaje) {
+    public void setGastoHospedaje(int gastoHospedaje) {
         this.gastoHospedaje = gastoHospedaje;
     }
 
-    public List<Long> getRecuerdosGasto() {
+    public List<Integer> getRecuerdosGasto() {
         return recuerdosGasto;
     }
 
-    public void setRecuerdosGasto(List<Long> recuerdosGasto) {
+    public void setRecuerdosGasto(List<Integer> recuerdosGasto) {
         this.recuerdosGasto = recuerdosGasto;
     }
 
@@ -55,27 +55,27 @@ public class Gastos
         this.nombreRecuerdo = nombreRecuerdo;
     }
 
-    public List<Long> getGastoLugar() {
-        return gastoLugar;
+    public List<Integer> getGastoLugar_Actividad() {
+        return gastoLugar_Actividad;
     }
 
-    public void setGastoLugar(List<Long> gastoLugar) {
-        this.gastoLugar = gastoLugar;
+    public void setGastoLugar_Actividad(List<Integer> gastoLugar_Actividad) {
+        this.gastoLugar_Actividad = gastoLugar_Actividad;
     }
 
-    public List<String> getNombreLugar() {
-        return nombreLugar;
+    public List<String> getNombreLugar_Actividad() {
+        return nombreLugar_Actividad;
     }
 
-    public void setNombreLugar(List<String> nombreLugar) {
-        this.nombreLugar = nombreLugar;
+    public void setNombreLugar_Actividad(List<String> nombreLugar_Actividad) {
+        this.nombreLugar_Actividad = nombreLugar_Actividad;
     }
 
-    public List<Long> getValorEquipaje() {
+    public List<Integer> getValorEquipaje() {
         return valorEquipaje;
     }
 
-    public void setValorEquipaje(List<Long> valorEquipaje) {
+    public void setValorEquipaje(List<Integer> valorEquipaje) {
         this.valorEquipaje = valorEquipaje;
     }
 
@@ -94,6 +94,8 @@ public class Gastos
     public void setTipoVehiculo(List<String> tipoVehiculo) {
         this.tipoVehiculo = tipoVehiculo;
     }
+
+    
     
     
     @Override
@@ -103,8 +105,8 @@ public class Gastos
                this.gastoHospedaje +" "+  
                 this.recuerdosGasto +" "+
                 this.nombreRecuerdo +" "+
-                this.gastoLugar +" "+
-                this.nombreLugar +" "+
+                this.gastoLugar_Actividad +" "+
+                this.nombreLugar_Actividad +" "+
                 this.valorEquipaje +" "+
                 this.integrantes;
                

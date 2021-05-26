@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+    <html>
+        <h:form>
+            <h:head>
+                <title>Facelet Title</title>
+            </h:head>
+            <h:body>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate/>
+                </p:messages><!-- comment -->
+                <p:panel header="Añadir el nombre del integrante y el peso del equipaje">
+                    <div>
+                        <p:inputText id="name" value="#{equipajeIntegrantesBean.nombreIntegrante}"/>
+                        <p:outputLabel for="@previous" value="Nombre Integrante"/>                                                                      
+                    </div>
+                    <p:separator/>
+                    <div>
+                        <p:inputText id="pass" value="#{equipajeIntegrantesBean.pesoEquipaje}"/>
+                        <p:outputLabel for="@previous" value="Pesp Equipaje (Kg)"/> 
+                    </div>
+                     <p:separator/>
+                    <div>
+                        <p:inputText id="value" value="#{equipajeIntegrantesBean.valorEquipaje}"/>
+                        <p:outputLabel for="@previous" value="Valor del Equipaje"/> 
+                    </div>
+                </p:panel>                 
+                <p:panel>
+                    <p:commandButton id="validarEquipaje" value="Insertar" action="#{equipajeIntegrantesBean.insertarInfo()}" ajax="false"/>
+                    <p:commandButton id="salirPlan" value="Salir" action="volver" ajax="false"/> 
+                </p:panel>
+            </h:body>
+        </h:form>
+    </html>
+</f:view>
+

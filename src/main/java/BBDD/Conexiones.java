@@ -6,8 +6,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexiones {
-    private final String URL = "C:/Users/jason/Documents/Ucentral/PROYECTO INGENIERIA DE SOFTWARE"
-            + "/ProyectoPlanificador/src/main/webapp/db/planesViajes.db";
+    private final String URL = "C:/Users/jason/Documents/Ucentral/PROYECTO INGENIERIA DE SOFTWARE/"
+            + "ProyectoPlanificador/src/main/webapp/db/planesViajes.db";
     
     public Connection conectarse(){
         try {

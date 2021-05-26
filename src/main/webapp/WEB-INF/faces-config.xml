@@ -46,7 +46,7 @@
         <from-view-id>/consultaViajes.xhtml</from-view-id>
         <navigation-case>
             <from-action>empezar</from-action>
-            <to-view-id>/faces/seleccionDestino.xhtml</to-view-id>
+            <to-view-id>/faces/countryDates.xhtml</to-view-id>
             <redirect/> 
         </navigation-case>  
         <navigation-case>
@@ -55,5 +55,51 @@
             <redirect/> 
         </navigation-case>  
     </navigation-rule> 
-      
+    
+    <navigation-rule>
+        <from-view-id>/countryDates.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>equipajes</from-action>
+            <to-view-id>/faces/equipajes.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>    
+        <navigation-case>
+            <from-action>salir</from-action>
+            <to-view-id>/faces/login.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>      
+    </navigation-rule>      
+    
+    <navigation-rule>
+        <from-view-id>/equipajes.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>añadir</from-action>
+            <to-view-id>/faces/anyadirEquipaje.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        <navigation-case>
+            <from-action>siguiente</from-action>
+            <to-view-id>/faces/gastosViaje.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        <navigation-case>
+            <from-action>salir</from-action>
+            <to-view-id>/faces/login.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/anyadirEquipaje.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>insertar</from-action>
+            <to-view-id>/faces/equipajes.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        <navigation-case>
+            <from-action>volver</from-action>
+            <to-view-id>/faces/equipajes.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

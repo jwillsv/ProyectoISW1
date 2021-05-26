@@ -9,22 +9,24 @@
         <h:head>
             <title>Facelet Title</title>
         </h:head>
-        <h:form>
-            <h:body>
+        <h:body>
+            <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate/>
-                </p:messages><!-- comment -->
-                <p:panel header="AQUI SE ADMINISTRAN SUS PLANES">
-
+                </p:messages><!-- comment -->               
+                <p:panel header="ASIGNE LOS GASTOS DE SU PLAN">
+                    <p:galleria value="#{gastosBean.paisSeleccionado}" var="Paises recomendados" >
+                        <p:graphicImage value="./ProyectoPlanificador/src/main/webapp/Imagenes/#{gastosBean.paisSeleccionado}/"
+                                        title="#{countryDatesBean.paisSeleccionado}" alt="Imágenes Representativas del país" />
+                    </p:galleria>
                 </p:panel>
                 <p:panel header="CREAR PLAN">
                     <h:form>
-                        <p:commandButton id="newPlan" value="Crear Plan" action="empezar" ajax="false"/>
                         <p:commandButton id="salirPlan" value="Salir del planificador" action="login" ajax="false"/>
                     </h:form>
                 </p:panel>
-            </h:body>
-        </h:form>
+            </h:form>
+        </h:body>
     </html>
 </f:view>
 

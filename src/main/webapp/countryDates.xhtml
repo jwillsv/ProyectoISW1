@@ -5,25 +5,19 @@
         xmlns:h="http://java.sun.com/jsf/html"
         xmlns:ui="http://java.sun.com/jsf/facelets"
         xmlns:p="http://primefaces.org/ui">
-<f:view xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:p="http://primefaces.org/ui">
-
     <html>
-        <h:head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-            <title>Prueba con Primefaces</title>
-        </h:head>
         <h:form>
-            <h:body>              
-                <p:panel header="ELIJA SU DESTINO Y LAS FECHAS DE INICIO Y TERMINACIÓN DEL VIAJE EN SU PLAN">                    
-                   <p:separator/>
+            <h:head>
+                <title>Facelet Title</title>
+            </h:head>
+            <h:body>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate/>
+                </p:messages><!-- comment -->
+                <p:panel header="ELIJA SU DESTINO Y LAS FECHAS DE INICIO Y TERMINACIÓN DEL VIAJE EN SU PLAN">
                     <div> 
                         <p:outputLabel for="@next" value="Seleccione un Pais a viajar"/>
                         <p:selectOneMenu id="option" value="#{countryDatesBean.eleccionPais}">
-                            <f:selectItem itemLabel="Seleccione un País" itemValue=""/>
                             <f:selectItem itemLabel="Afganistan" itemValue="Afganistan"/>
                             <f:selectItem itemLabel="Albania" itemValue="Albania"/>
                             <f:selectItem itemLabel="Alemania" itemValue="Alemania"/>
@@ -48,52 +42,19 @@
                                 <h:outputText value="Elija una opción" style="font-weight:bold;"/>
                             </f:facet>
                         </p:selectOneMenu>             
-                    </div>-->
-                    <div>  
-                        <p:outputLabel for="@previous" value="Fecha Inicial" />
-                        <p:calendar id="fechaI" value="#{countryDatesBean.fechaInicial}" mode="popup"/>
                     </div>
-                    <p:separator/>
-                    <div>    
-                        <p:outputLabel for="@previous" value="Fecha Inicial" />
-                        <p:calendar id="fechaF" value="#{countryDatesBean.fechaFinal}" mode="popup"/>   
-                    </div> 
-                    <p:separator/>
+                </p:panel>
+                <p:panel header="VALIDE LAS FECHAS">
                     <div> 
-                        <p:commandButton  id="val" value="validar" action="#{countryDatesBean.validarFechas()}" ajax="false"/>        
+                        <p:commandButton  value="validar" action="#{countryDatesBean.validarFechas()}" ajax="false"/>        
                     </div> 
                 </p:panel>
                 <p:panel header="SI QUIERE VOLVER AL PLANIFICADOR, ELIJA SALIR PLAN">
-                    <p:commandButton  id="salirDestinos" value="Salir del plan" action="salir" ajax="false"/>
-                </p:panel>                
-            </h:body>
-        </h:form> 
-    </html>
-    
-</f:view>
-    <f:view xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:p="http://primefaces.org/ui">
-    <html>
-        <h:form>
-            <h:head>
-                <title>Facelet Title</title>
-            </h:head>
-            <h:body>
-                <p:messages id="messages" showDetail="true" closable="true">
-                    <p:autoUpdate/>
-                </p:messages><!-- comment -->
-                <p:panel header="ELIJA SU DESTINO Y LAS FECHAS DE INICIO Y TERMINACIÓN DEL VIAJE EN SU PLAN">
-                    <div> 
-                        <p:commandButton  id="val" value="validar" action="#{countryDatesBean.validarFechas()}" ajax="false"/>        
-                    </div> 
-                </p:panel>
-                <p:panel header="SI QUIERE VOLVER AL PLANIFICADOR, ELIJA SALIR PLAN">
-                    <p:commandButton  id="salirDestinos" value="Salir del plan" action="salir" ajax="false"/>
+                    <p:commandButton  value="Salir del plan" action="salir" ajax="false"/>
                 </p:panel>       
             </h:body>
         </h:form>
     </html>
 </f:view>
+
+

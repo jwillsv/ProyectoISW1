@@ -5,6 +5,7 @@ public class Equipaje
     private Long id;
     private String nombreIntegrante;
     private Double pesoEquipaje;
+    private Integer valorEquipaje;
 
     public Long getId() {
         return id;
@@ -30,13 +31,22 @@ public class Equipaje
         this.pesoEquipaje = pesoEquipaje;
     }
 
-   
+    public Integer getValorEquipaje() {
+        return valorEquipaje;
+    }
+
+    public void setValorEquipaje(Integer valorEquipaje) {
+        this.valorEquipaje = valorEquipaje;
+    }
+
+    
     
     @Override
     public String toString()
     {
         return this.nombreIntegrante +" "+
-               this.pesoEquipaje;
+               this.pesoEquipaje +" "+
+               this.valorEquipaje;
     }
 
     

@@ -1,43 +1,54 @@
 package dao;
 
-import java.util.Date;
-
 public class CountryDates 
 {
-    private Date fechaInicial;
-    private Date fechaFinal;
-    private Paises paises;
+    private Long id;
+    private String fechaInicial;
+    private String fechaFinal;;
+    private String paisSeleccionado;
 
-    public Date getFechaInicial() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFechaInicial() {
         return fechaInicial;
     }
 
-    public void setFechaInicial(Date fechaInicial) {
+    public void setFechaInicial(String fechaInicial) {
         this.fechaInicial = fechaInicial;
     }
 
-    public Date getFechaFinal() {
+    public String getFechaFinal() {
         return fechaFinal;
     }
 
-    public void setFechaFinal(Date fechaFinal) {
+    public void setFechaFinal(String fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
 
-    public Paises getPaises() {
-        return paises;
+    
+
+    public String getPaisSeleccionado() {
+        return paisSeleccionado;
     }
 
-    public void setPaises(Paises paises) {
-        this.paises = paises;
+    public void setPaisSeleccionado(String paisSeleccionado) {
+        this.paisSeleccionado = paisSeleccionado;
     }
     
+   
     @Override
     public String toString()
     {
         return this.fechaInicial + " " +
-                this.fechaFinal  + " " +
-                this.paises.getPais();
+                this.fechaFinal + " " +
+                this.paisSeleccionado;
+ 
     }
     
 }

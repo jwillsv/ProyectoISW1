@@ -10,7 +10,7 @@ import java.util.List;
 public class GastosBean 
 {
     private String eleccionPais;
-    private String paisSeleccionado = "Alemania";
+    private String paisSeleccionado;
     private List<String> imagesSelect;
     private String paisElegido;
     private String mensajeAct1;
@@ -18,6 +18,7 @@ public class GastosBean
     private String mensajeAct3;
     private String mensajeAct4;
     private String mensajeAct5;
+    private Integer montoEmergencia;
 
     public String getEleccionPais() {
         return eleccionPais;
@@ -91,41 +92,14 @@ public class GastosBean
     public void setMensajeAct5(String mensajeAct5) {
         this.mensajeAct5 = mensajeAct5;
     }
-    
-    public void seleccion()
-    {
-        
-    }
-            
-    
-    
-    
-    public List<String> imagenDestino() {
-        if (paisSeleccionado.contentEquals("Alemania")) {
-            for (int i = 1; i <= 4; i++) {
-                imagesSelect.add(paisSeleccionado + "/" + i + ".jpg");
-            }
-        } else if (paisSeleccionado.contentEquals("Estados Unidos")) {
-            for (int i = 1; i <= 4; i++) {
-                imagesSelect.add(paisSeleccionado + "/" + i + ".jpg");
-            }
 
-        } else if (paisSeleccionado.contentEquals("Francia")) {
-            for (int i = 1; i <= 4; i++) {
-                imagesSelect.add(paisSeleccionado + "/" + i + ".jpg");
-            }
-        } else if (paisSeleccionado.contentEquals("España")) {
-            for (int i = 1; i <= 4; i++) {
-                imagesSelect.add(paisSeleccionado + "/" + i + ".jpg");
-            }
-        } else if (paisSeleccionado.contentEquals("Rusia")) {
-            for (int i = 1; i <= 4; i++) {
-                imagesSelect.add(paisSeleccionado + "/" + i + ".jpg");
-            }
-
-        }
-        return imagesSelect;
+    public Integer getMontoEmergencia() {
+        return montoEmergencia;
     }
+
+    public void setMontoEmergencia(Integer montoEmergencia) {
+        this.montoEmergencia = montoEmergencia;
+    }   
 
     public void mensajes() {
         if (paisSeleccionado.contentEquals("Alemania")) {
@@ -148,7 +122,7 @@ public class GastosBean
             this.mensajeAct4 = "Actividad : Visitas: $700000";
             this.mensajeAct5 = "Actividad Surf: Paseos: $500000";
 
-        } else if (paisSeleccionado.contentEquals("España")) {
+        } else if (paisSeleccionado.contentEquals("Espaya")) {
             this.mensajeAct1 = "Actividad Surf: $500000";
             this.mensajeAct2 = "Actividad vuelos: $1700000";
             this.mensajeAct3 = "Actividad Realidad Virtual: $500000";

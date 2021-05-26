@@ -10,17 +10,23 @@
             <title>Facelet Title</title>
         </h:head>
         <h:body>
-            <h:form>
-                <p:messages id="messages" showDetail="true" closable="true">
-                    <p:autoUpdate/>
-                </p:messages><!-- comment -->               
-                <p:panel header="ASIGNE LOS GASTOS DE SU PLAN">
-                    <p:galleria value="#{gastosBean.paisSeleccionado}" var="Paises recomendados" >
-                        <p:graphicImage value="./ProyectoPlanificador/src/main/webapp/Imagenes/#{gastosBean.paisSeleccionado}/"
-                                        title="#{countryDatesBean.paisSeleccionado}" alt="Imágenes Representativas del país" />
-                    </p:galleria>
+            <h:form>               
+                <p:panel header="DIGITE LOS GASTOS CORRESPONDIENTES">
+                    <div>
+                        <p:inputText id="pasajes" value="#{loginManageBean.nombreUsuario}"/>
+                        <p:outputLabel for="@previous" value=""/>  
+                    </div>
+                    <div>
+                        <p:inputText id="hospedaje" value="#{loginManageBean.nombreUsuario}"/>
+                        <p:outputLabel for="@previous" value="Monto De emergencia"/>  
+                    </div>
                 </p:panel>
-                <p:panel header="CREAR PLAN">
+                <p:panel header="POR SER PRECAVIDO, ES NECESARIO QUE EL USUARIO DIGITE UN MONTO DE EMERGENCIA\n
+                         SI SE QUEDA SIN DINERO">
+                    <p:inputText id="name" value="#{loginManageBean.nombreUsuario}"/>
+                    <p:outputLabel for="@previous" value="Monto De emergencia"/>  
+                </p:panel>
+                <p:panel header="FINALIZAR PLAN">
                     <h:form>
                         <p:commandButton id="salirPlan" value="Salir del planificador" action="login" ajax="false"/>
                     </h:form>

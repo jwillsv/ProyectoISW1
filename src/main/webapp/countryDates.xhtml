@@ -26,7 +26,7 @@
                             <f:selectItem itemLabel="Estados Unidos" itemValue="Estados Unidos"/>
                             <f:selectItem itemLabel="Eslovaquia" itemValue="Eslovaquia"/>
                             <f:selectItem itemLabel="Estambul" itemValue="Estambul"/>
-                            <f:selectItem itemLabel="España" itemValue="España"/>
+                            <f:selectItem itemLabel="España" itemValue="Espaya"/>
                             <f:selectItem itemLabel="Egipto" itemValue="Egipto"/>
                             <f:selectItem itemLabel="Francia" itemValue="Francia"/>
                             <f:selectItem itemLabel="Finlandia" itemValue="Finlandia"/>
@@ -43,6 +43,21 @@
                             </f:facet>
                         </p:selectOneMenu>             
                     </div>
+                </p:panel>
+                <p:panel>
+                    <div>  
+                        <p:datePicker id="fechaI" value="#{countryDatesBean.fechaInicial}"
+                                    title="Escoje fechaInicial" />
+                        <p:outputLabel for="@previous" value="Fecha Inicial" />
+
+                    </div>
+                    <p:separator/>
+                    <div>    
+                        <p:datePicker id="fechaF" value="#{countryDatesBean.fechaFinal}"
+                                    title="Escoje fecha final" />   
+                        <p:outputLabel for="@previous" value="Fecha Final" />
+
+                    </div> 
                 </p:panel>
                 <p:panel header="VALIDE LAS FECHAS">
                     <div> 

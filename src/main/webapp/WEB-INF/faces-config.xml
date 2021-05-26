@@ -79,7 +79,7 @@
         </navigation-case>
         <navigation-case>
             <from-action>siguiente</from-action>
-            <to-view-id>/faces/gastosViaje.xhtml</to-view-id>
+            <to-view-id>/faces/bestCountry.xhtml</to-view-id>
             <redirect/> 
         </navigation-case>
         <navigation-case>
@@ -102,4 +102,15 @@
             <redirect/> 
         </navigation-case>
     </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/bestCountry.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>gastos</from-action>
+            <to-view-id>/faces/gastosViaje.xhtml</to-view-id>
+            <redirect/>           
+        </navigation-case>       
+    </navigation-rule>
+        
+      
 </faces-config>

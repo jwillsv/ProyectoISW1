@@ -6,6 +6,7 @@ import java.util.Date;
 public class Registros 
 {
     private Long id;
+    private String paisSeleccionado;
     private Date fechaInicioR;
     private Date fechaFinalR;
 
@@ -16,6 +17,15 @@ public class Registros
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getPaisSeleccionado() {
+        return paisSeleccionado;
+    }
+
+    public void setPaisSeleccionado(String paisSeleccionado) {
+        this.paisSeleccionado = paisSeleccionado;
+    }
+    
 
     public Date getFechaInicioR() {
         return fechaInicioR;
@@ -37,6 +47,7 @@ public class Registros
      public String toString()
     {
         return this.id + " " +
+               this.paisSeleccionado + " " +
                this.fechaInicioR + " " +
                this.fechaFinalR;
                

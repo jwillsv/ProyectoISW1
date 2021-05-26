@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+    <html>
+        <h:head>
+            <title>Facelet Title</title>
+        </h:head>
+        <h:body>
+            <h:form>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate/>
+                </p:messages><!-- comment -->              
+                <p:panel header="IMAGENES DEL PAIS #{imagenBean.paisSeleccionado}" >
+                    <h:graphicImage library="images/#{imagenBean.paisSeleccionado}" name="1.jpg" width="200" height="200" />
+                    <h:graphicImage library="images/#{imagenBean.paisSeleccionado}" name="2.jpg" width="200" height="200" />      
+                    <h:graphicImage library="images/#{imagenBean.paisSeleccionado}" name="3.jpg" width="200" height="200" />      
+                    <h:graphicImage library="images/#{imagenBean.paisSeleccionado}" name="4.jpg" width="200" height="200" />
+                    <p:separator/>
+
+                    <p:outputLabel  value="#{imagenBean.mensajes()}"/>
+
+                    <p:commandButton id="salirPlan" value="Salir del planificador" action="gastos" ajax="false"/>
+                </p:panel>
+            </h:form>
+        </h:body>
+    </html>
+</f:view>
+

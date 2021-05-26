@@ -11,10 +11,11 @@ import java.util.List;
  *
  * @author jason
  */
-public class Gastos 
-{
-    private int gastoPasajes;
-    private int gastoHospedaje;
+public class Gastos {
+
+    private Integer montoEmergencia;
+    private Integer gastoPasajes;
+    private Integer gastoHospedaje;
     private List<Integer> recuerdosGasto;
     private List<String> nombreRecuerdo;
     private List<Integer> gastoLugar_Actividad;
@@ -23,19 +24,27 @@ public class Gastos
     private List<String> integrantes;
     private List<String> tipoVehiculo;
 
-    public int getGastoPasajes() {
+    public Integer getMontoEmergencia() {
+        return montoEmergencia;
+    }
+
+    public void setMontoEmergencia(Integer montoEmergencia) {
+        this.montoEmergencia = montoEmergencia;
+    }
+
+    public Integer getGastoPasajes() {
         return gastoPasajes;
     }
 
-    public void setGastoPasajes(int gastoPasajes) {
+    public void setGastoPasajes(Integer gastoPasajes) {
         this.gastoPasajes = gastoPasajes;
     }
 
-    public int getGastoHospedaje() {
+    public Integer getGastoHospedaje() {
         return gastoHospedaje;
     }
 
-    public void setGastoHospedaje(int gastoHospedaje) {
+    public void setGastoHospedaje(Integer gastoHospedaje) {
         this.gastoHospedaje = gastoHospedaje;
     }
 
@@ -95,21 +104,18 @@ public class Gastos
         this.tipoVehiculo = tipoVehiculo;
     }
 
-    
-    
-    
     @Override
-    public String toString()
-    {
-        return this.gastoPasajes +" "+
-               this.gastoHospedaje +" "+  
-                this.recuerdosGasto +" "+
-                this.nombreRecuerdo +" "+
-                this.gastoLugar_Actividad +" "+
-                this.nombreLugar_Actividad +" "+
-                this.valorEquipaje +" "+
-                this.integrantes;
-               
+    public String toString() {
+        return this.montoEmergencia + " "
+                + this.gastoPasajes + " "
+                + this.gastoHospedaje + " "
+                + this.recuerdosGasto + " "
+                + this.nombreRecuerdo + " "
+                + this.gastoLugar_Actividad + " "
+                + this.nombreLugar_Actividad + " "
+                + this.valorEquipaje + " "
+                + this.integrantes;
+
     }
 }
     /*private Long gastoPasajes;

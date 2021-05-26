@@ -42,7 +42,11 @@ public class EquipajeIntegrantesBean {
         this.valorEquipaje = valorEquipaje;
     }
 
-    
+    public EquipajeIntegrantesBean() 
+    {       
+        OperEquipaje equipaje = new OperEquipaje();
+        this.listaEquipaje = equipaje.consultar();
+    }
 
     public String getMensaje() {
         return mensaje;
@@ -65,54 +69,35 @@ public class EquipajeIntegrantesBean {
         Equipaje equi = new Equipaje();
         equi.setNombreIntegrante(nombreIntegrante);
         equi.setPesoEquipaje(pesoEquipaje);
-        equi.setValorEquipaje(valorEquipaje);
+        if (pesoEquipaje > 23) {
+            equi.setValorEquipaje(valorEquipaje + 120000);
+        } else {
+            equi.setValorEquipaje(valorEquipaje);
+        }
         if (nombreIntegrante.isEmpty() || pesoEquipaje == null || valorEquipaje == null) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", "Las casillas están vacias, complete todos los campos"));
         } else {
             if (!nombreIntegrante.matches("[A-Za-z]+|[a-z]+$")) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", "Para el integrante, no es un nombre, escribalo de nuevo"));
             } else {
-                if (pesoEquipaje.toString().matches("^[[0-9]+] | ^[[0-9]+.[0-9]+]$")) {
+                if (pesoEquipaje.toString().matches("^[[0-9]+] | ^[[0-9]+.[0-9]+]$") || pesoEquipaje < 0) {
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", "El peso no un valor de tipo flotante o es negativo"
                             + "Ejemplos aceptados 7.0, 1231.222 , 99.00, digitelo de nuevo"));
-                    if(pesoEquipaje > 23)
-                    {
-                        valorEquipaje = valorEquipaje + 120000;
-                    }
-                    else
-                    {
-                       valorEquipaje = valorEquipaje + 0;
-                    }
                 } else {
-                    if(valorEquipaje.toString().matches("^[[0-9]+]$")) {
+                    if (valorEquipaje.toString().matches("^[[0-9]+]$") || valorEquipaje < 0) {
                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", "El valor del equipaje no un valor entero o es negativo"
-                            + "Ejemplos aceptados 99999, 120000, 123, digitelo de nuevo"));
+                                + "Ejemplos aceptados 99999, 120000, 123, digitelo de nuevo"));
 
                     } else {
                         if (equipaje.insertarInfo(equi) > 0) {
                             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Información Equipaje creada con exito exito"));
-                            return "volver";
+                            return "siguiente";
                         } else {
                             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", "Se presentó inconveniente en el almacenamiento, intente mas tarde "));
                         }
                     }
                 }
             }
-        }
-        return null;
-    }
-
-    public void consultar() {
-        OperEquipaje equipaje = new OperEquipaje();
-        this.listaEquipaje = equipaje.consultar();
-    }
-
-    public String entrarGastos() {
-        if (listaEquipaje == null) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", "Debe existir al menos un integrante"));
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Usuario Creado con exito"));
-            return "siguiente";
         }
         return null;
     }

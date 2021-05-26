@@ -5,6 +5,8 @@
  */
 package web.plan;
 
+import BBDDOperacionesRegistros.OperacionesReg;
+import dao.Registros;
 import java.util.Date;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -19,24 +21,24 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 public class CountryDatesBean {
 
-    private String fechaInicial;
-    private String fechaFinal;
+    private Date fechaInicial;
+    private Date fechaFinal;
     private String eleccionPais;
     private String paisSeleccionado;
 
-    public String getFechaInicial() {
+    public Date getFechaInicial() {
         return fechaInicial;
     }
 
-    public void setFechaInicial(String fechaInicial) {
+    public void setFechaInicial(Date fechaInicial) {
         this.fechaInicial = fechaInicial;
-    }   
+    }
 
-    public String getFechaFinal() {
+    public Date getFechaFinal() {
         return fechaFinal;
     }
 
-    public void setFechaFinal(String fechaFinal) {
+    public void setFechaFinal(Date fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
 
@@ -77,7 +79,7 @@ public class CountryDatesBean {
                 paisSeleccionado = eleccionPais;
                 break;
             case "España":
-                paisSeleccionado = eleccionPais;
+                paisSeleccionado = "Espaya";
                 break;
             case "Egipto":
                 paisSeleccionado = eleccionPais;
@@ -117,10 +119,37 @@ public class CountryDatesBean {
         return paisSeleccionado;
     }
 
-    public String validarFechas() {
-       
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Info", "Fechas validas"));
-            return "equipajes";      
+    public String validarFechas() 
+    {
+        OperacionesReg r = new OperacionesReg();
+        Registros reg = new Registros();
+        reg.setPaisSeleccionado(eleccionDestino());
+        reg.setFechaInicioR(fechaInicial);
+        reg.setFechaFinalR(fechaFinal);
+        if (fechaInicial == null || fechaFinal == null) {
+         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", "La información esta en blanco. Termine los campos"));
+        } else {
+            if (fechaInicial.toString().isEmpty() || fechaFinal.toString().isEmpty()) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", "La información esta en blanco. Termine los campos"));
+            } else {
+                if (fechaInicial.getDate() >= fechaFinal.getDate()) {
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", "Fechas no concordantes"));
+                } else {
+                    if(r.loadInfoRegistro(reg) > 0)
+                    {
+                       FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Info", "Fechas validas"));
+                       return "equipajes"; 
+                    }
+                    else
+                    {
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Info", "Hay problemas en la unidad de almacenamiento, vuelva más tarde"));
+                    }
+                }
+
+            }
+        }
+        return null;
+
     }
 
 }
